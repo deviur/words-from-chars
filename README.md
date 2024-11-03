@@ -1,2 +1,12 @@
 # words-from-chars
-Get list of words by chars
+Get a list of words by character
+
+## Install
+```shell
+make install
+```
+
+## Run server
+```shell
+make run
+```
