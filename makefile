@@ -9,4 +9,4 @@ lint:
 	@black . && flake8 .
 
 run:
-	uvicorn --reload app:app
+	flask run --reload

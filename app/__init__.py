@@ -1,21 +1,20 @@
-from fastapi import FastAPI
+from flask import Flask
 
 from .find_words import find_words
 from pathlib import Path
 
 HERE = Path(__file__).parent
 
-app = FastAPI()
+app = Flask(__name__)
 
 
-@app.get("/")
+@app.route("/", methods=["GET"])
 def index():
     return {"status": "fastapi server is running."}
 
 
-@app.get("/words-from/{chars}")
+@app.route("/words-from/<chars>", methods=["GET"])
 def words(chars: str):
     with open(f"{HERE}/russian_nouns.txt", "r", encoding="utf8") as file:
-        line = file.read(1).split()
         found_words = find_words(chars, file)
-        return {"found_words": found_words, "line": line}
+        return str({"found_words": found_words})

@@ -40,7 +40,7 @@ def find_words(test, file):
 
 if __name__ == "__main__":
     with open(f"{HERE}/russian_nouns.txt", "r") as f:
-        words = find_words("", f)
+        words = find_words("бада", f)
 
-    # words = find_words("шалаш", ["шалаш", "шалашик"])
+    # words = find_words("да", ["ад", "да"])
     print(words)
